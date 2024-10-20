@@ -154,7 +154,7 @@ public class WandOfInquiryItem extends Item implements DirectInteractionHandler 
     @Environment(EnvType.CLIENT)
     private static void setupOutlineHandler() {
         ClientTickEvents.END_WORLD_TICK.register(world -> {
-            if (!MinecraftClient.getInstance().player.isHolding(AffinityItems.WAND_OF_INQUIRY)) return;
+            if (MinecraftClient.getInstance().player == null || !MinecraftClient.getInstance().player.isHolding(AffinityItems.WAND_OF_INQUIRY)) return;
 
             ACTIVE_OUTLINE_PROVIDERS.removeIf(providerPos -> {
                 if (!(world.getBlockEntity(providerPos) instanceof InquirableOutlineProvider provider)) return true;
