@@ -24,6 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: mkdir -p build/libs
+    - run: echo hello > build/libs/test-action.jar
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -42,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: affinity-action-jar  
-        path: build/libs/affinity-action.jar  
+        path: build/libs/*.jar
 
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
