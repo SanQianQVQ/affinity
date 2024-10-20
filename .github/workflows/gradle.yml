@@ -36,9 +36,6 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
-
-    - name: Build with Gradle Wrapper
-      run: ./gradlew buildJar
       
     - name: Upload JAR file
       uses: actions/upload-artifact@v3
