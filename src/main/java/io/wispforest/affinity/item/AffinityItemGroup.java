@@ -19,7 +19,6 @@ import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.village.VillagerData;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.village.VillagerType;
 
@@ -92,6 +91,7 @@ public class AffinityItemGroup {
             entries.add(VOID_RESONANT_ETHEREAL_AMETHYST_SHARD);
             entries.add(ARCANE_FADE_BUCKET);
             entries.add(AETHUM_FLUX_BOTTLE);
+            if (Affinity.config().unfinishedFeatures()) entries.add(PITCHER_ELIXIR_BOTTLE);
             entries.add(EMERALD_BLOCK);
             entries.add(EMERALD_INGOT);
             entries.add(EMERALD_NUGGET);
@@ -128,6 +128,7 @@ public class AffinityItemGroup {
             entries.add(OUIJA_BOARD);
             entries.add(AETHUM_PROBE);
             entries.add(ITEM_TRANSFER_NODE);
+            entries.add(PHANTOM_BUNDLE);
             entries.add(WORLD_PIN);
             entries.add(LOCAL_DISPLACEMENT_GATEWAY);
             if (Affinity.config().unfinishedFeatures()) entries.add(VILLAGER_ARMATURE);
@@ -171,11 +172,11 @@ public class AffinityItemGroup {
                 entries.add(ResplendentGemItem.make(AffinityEnchantments.BASTION, wrapper));
 
                 wrapper.streamEntries()
-                        .filter(entry -> entry.registryKey().getValue().getNamespace().equals(Affinity.MOD_ID))
-                        .filter(enchantment -> !enchantment.value().effects().contains(AffinityEnchantmentEffectComponents.ABSOLUTE_NAME_HUE))
-                        .map(enchantment -> new EnchantmentLevelEntry(enchantment, enchantment.value().getMaxLevel()))
-                        .map(EnchantedBookItem::forEnchantment)
-                        .forEach(entries::add);
+                    .filter(entry -> entry.registryKey().getValue().getNamespace().equals(Affinity.MOD_ID))
+                    .filter(enchantment -> !enchantment.value().effects().contains(AffinityEnchantmentEffectComponents.ABSOLUTE_NAME_HUE))
+                    .map(enchantment -> new EnchantmentLevelEntry(enchantment, enchantment.value().getMaxLevel()))
+                    .map(EnchantedBookItem::forEnchantment)
+                    .forEach(entries::add);
             });
 
             context.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent(wrapper -> {
@@ -247,10 +248,10 @@ public class AffinityItemGroup {
 
     private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item containerItem) {
         registryWrapper.streamEntries()
-                .filter(entry -> entry.registryKey().getValue().getNamespace().equals(Affinity.MOD_ID))
-                .filter(entry -> !entry.matches(Potions.WATER))
-                .map(entry -> PotionContentsComponent.createStack(containerItem, entry))
-                .forEach(entries::add);
+            .filter(entry -> entry.registryKey().getValue().getNamespace().equals(Affinity.MOD_ID))
+            .filter(entry -> !entry.matches(Potions.WATER))
+            .map(entry -> PotionContentsComponent.createStack(containerItem, entry))
+            .forEach(entries::add);
     }
 
     private static boolean isChyz() {

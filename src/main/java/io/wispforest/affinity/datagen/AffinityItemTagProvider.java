@@ -71,7 +71,9 @@ public class AffinityItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         this.getOrCreateTagBuilder(UnfinishedFeaturesResourceCondition.UNFINISHED_ITEMS).add(
             VILLAGER_ARMS,
-            AffinityBlocks.VILLAGER_ARMATURE.asItem()
+            AffinityBlocks.VILLAGER_ARMATURE.asItem(),
+            AffinityBlocks.SONIC_SYPHON.asItem(),
+            PITCHER_ELIXIR_BOTTLE
         );
 
         this.copy(ConventionalBlockTags.ORES, ConventionalItemTags.ORES);
@@ -83,9 +85,10 @@ public class AffinityItemTagProvider extends FabricTagProvider.ItemTagProvider {
         this.getOrCreateTagBuilder(ItemTags.SWORDS).addTag(TagKey.of(RegistryKeys.ITEM, Affinity.id("artifact_blades")));
 
         this.getOrCreateTagBuilder(ItemTags.BOW_ENCHANTABLE).add(AZALEA_BOW);
+        this.getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE).add(AZALEA_BOW);
         this.getOrCreateTagBuilder(ConventionalItemTags.BOW_TOOLS).add(AZALEA_BOW);
 
-        this.getOrCreateTagBuilder(ItemTags.HEAD_ARMOR).add(EMERALD_CHESTPLATE);
+        this.getOrCreateTagBuilder(ItemTags.HEAD_ARMOR).add(EMERALD_HELMET);
         this.getOrCreateTagBuilder(ItemTags.CHEST_ARMOR).add(EMERALD_CHESTPLATE);
         this.getOrCreateTagBuilder(ItemTags.LEG_ARMOR).add(EMERALD_LEGGINGS);
         this.getOrCreateTagBuilder(ItemTags.FOOT_ARMOR).add(EMERALD_BOOTS);

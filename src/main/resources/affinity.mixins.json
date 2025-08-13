@@ -110,6 +110,7 @@
     "client.EnchantmentScreenMixin",
     "client.EntityMixin",
     "client.FramebufferMixin",
+    "client.HandledScreenMixin",
     "client.HeadFeatureRendererMixin",
     "client.HeldItemFeatureRendererMixin",
     "client.HeldItemRendererMixin",
@@ -131,12 +132,13 @@
     "client.WorldRendererAccessor",
     "client.WorldRendererMixin",
     "client.iris.HorizonRendererMixin",
+    "client.iris.SodiumProgramsMixin",
     "client.iris.WorldRenderingPhaseMixin",
-    "client.sodium.AlphaMaskConsumerMixin",
     "client.sodium.DefaultMaterialsMixin",
     "client.sodium.DefaultTerrainRenderPassesMixin",
     "client.sodium.SodiumWorldRendererMixin",
-    "client.sodium.TerrainRenderPassAccessor"
+    "client.sodium.TerrainRenderPassAccessor",
+    "client.sodium.AlphaMaskConsumerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -60,7 +60,7 @@
   "depends": {
     "fabricloader": ">=0.15.0",
     "fabric-api": "*",
-    "minecraft": ">=1.21",
+    "minecraft": "1.21.1",
     "trinkets": "*",
     "owo": ">=0.12.12+1.21",
     "terrablender": "*",
@@ -72,8 +72,8 @@
     "lavender": ">=0.1.2"
   },
   "breaks": {
-    "sodium": "0.6.x",
-    "iris": "<1.7.0"
+    "iris": "<1.8.0",
+    "sodium": "<0.6.0"
   },
   "custom": {
     "cardinal-components": [
